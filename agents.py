@@ -34,7 +34,8 @@ def search_arxiv(query: str, max_results: int = 3) -> List[Dict[str, str]]:
 
 def get_llm():
     if os.getenv("GROQ_API_KEY"):
-        return ChatGroq(model="llama3-70b-8192", temperature=0.2, groq_api_key=os.getenv("GROQ_API_KEY"))
+        # Old: return ChatGroq(model="llama3-70b-8192", …)
+        return ChatGroq(model="llama-3.3-70b-versatile", temperature=0.2, groq_api_key=os.getenv("GROQ_API_KEY"))
     else:
         return ChatOllama(model="llama3.2", temperature=0.2)
 
